@@ -1,0 +1,58 @@
+<div class="detail-card">
+
+  <!-- Badge catégorie — conference() lit le Signal Input -->
+  <span class="detail-badge">{{ conference().categorie }}</span>
+
+  <!-- Titre -->
+  <h2 class="detail-title">{{ conference().titre }}</h2>
+
+  <!-- Description -->
+  <p class="detail-desc">{{ conference().description }}</p>
+
+  <!-- Méta-infos -->
+  <div class="detail-meta">
+    <div class="meta-item">
+      <span class="meta-icon">👤</span>
+      <span>{{ conference().intervenant }}</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-icon">📅</span>
+      <span>{{ conference().date }}</span>
+    </div>
+  </div>
+
+  <!-- Footer : places disponibles + bouton inscription -->
+  <div class="detail-footer">
+
+    <!--
+      @if / @else  — contrôle de flux natif Angular 17+
+      Lit le Signal Input avec conference()
+    -->
+    @if (conference().placesDisponibles > 0) {
+
+      <!-- PROPERTY BINDING : [id] lie dynamiquement l'attribut -->
+      <span class="places available">
+        🎟️ {{ conference().placesDisponibles }} place(s) disponible(s)
+      </span>
+
+      <!--
+        EVENT BINDING : (click) → sInscrire()
+        sInscrire() lit conference() puis émet l'OUTPUT vers le parent
+      -->
+      <button
+        class="btn-inscrit"
+        [id]="'btn-inscrit-' + conference().id"
+        (click)="sInscrire()">
+        S'inscrire
+      </button>
+
+    } @else {
+
+      <span class="places full">❌ Complet</span>
+      <button class="btn-complet" disabled>Complet</button>
+
+    }
+
+  </div>
+
+</div>

@@ -1,0 +1,25 @@
+<div class="list-page">
+
+  <h1 class="list-title">🗓️ Liste des Conférences</h1>
+
+  <!-- Compteur de réservations — lit le computed du BookingService -->
+  @if (bookingService.totalReservations > 0) {
+    <p class="reservations-banner">
+      ✅ Vous avez réservé <strong>{{ bookingService.totalReservations }}</strong> conférence(s).
+    </p>
+  }
+
+  <div class="conf-grid">
+
+    <!--
+      @for  — itère sur le Signal du ConferenceService (PARENT)
+      [conference]  ── INPUT  : envoie la donnée vers l'enfant ConferenceDetail
+      (inscription) ── OUTPUT : reçoit l'événement émis par l'enfant
+    -->
+    @for (conf of conferenceService.conferences(); track conf.id) {
+      <app-conference-detail [conference]="conf"></app-conference-detail>
+    }
+
+  </div>
+
+</div>

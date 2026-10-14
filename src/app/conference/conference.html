@@ -1,0 +1,84 @@
+  <div class="conference-page">
+
+    <header class="conf-header">
+      <span class="badge">Conférence</span>
+
+      <h1 class="conf-title">{{ titre() }}</h1>
+
+      <div class="conf-meta">
+        <div class="meta-item">
+          <span class="meta-icon">👤</span>
+          <span>{{ intervenant() }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-icon">📅</span>
+          <span>{{ date() }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-icon">🎟️</span>
+          <span>{{ placesDisponibles() }} place(s) disponible(s)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── SECTION : MODIFICATION DU TITRE (Two-Way Binding) ─────── -->
+    <section class="section-card">
+      <h2>✏️ Modifier le titre de la conférence</h2>
+      <p class="hint">
+        Saisissez un nouveau titre — l'interface se met à jour instantanément
+        grâce au <strong>Two-Way Binding</strong> et aux <strong>Signals</strong>.
+      </p>
+
+      <div class="input-group">
+        <!--
+          TWO-WAY BINDING [(ngModel)]
+        -->
+        <input id="champTitre" type="text" [(ngModel)]="nouveauTitre" placeholder="Nouveau titre..." class="text-input" />
+
+        <!--
+          EVENT BINDING (click)
+        -->
+        <button id="btnMettreAJour" class="btn btn-secondary" (click)="mettreAJourTitre()">
+          Mettre à jour
+        </button>
+      </div>
+
+      @if (nouveauTitre().trim()) {
+      <p class="preview">
+        Aperçu : <em>{{ nouveauTitre() }}</em>
+      </p>
+      }
+    </section>
+
+    <section class="section-card">
+      <h2>📝 Inscription</h2>
+
+      <!--
+        CONTRÔLE DE FLUX NATIF @if / @else
+      -->
+      @if (placesDisponibles() > 0) {
+
+      <p class="status available">
+        ✅ Il reste <strong>{{ placesDisponibles() }}</strong> place(s).
+      </p>
+
+      <!--
+          EVENT BINDING (click)
+        -->
+      <button id="btnInscrire" class="btn btn-primary" (click)="sInscrire()">
+        S'inscrire à la conférence
+      </button>
+
+      } @else {
+
+      <p class="status full">
+        ❌ La conférence est complète. Aucune place disponible.
+      </p>
+
+      }
+    </section>
+
+
+
+
+  </div>

@@ -1,0 +1,258 @@
+/* ============================================================
+   STYLES – Composant ConférenceComponent
+   ============================================================ */
+
+/* ── Variables ──────────────────────────────────────────────── */
+:host {
+  --primary:      #6c63ff;
+  --primary-dark: #574fd6;
+  --secondary:    #f50057;
+  --bg-page:      #0f0f1a;
+  --bg-card:      rgba(255, 255, 255, 0.04);
+  --border:       rgba(255, 255, 255, 0.08);
+  --text-main:    #e8e8ff;
+  --text-muted:   #9090b0;
+  --success:      #00e676;
+  --danger:       #ff5252;
+  --radius:       16px;
+  --shadow:       0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ── Conteneur global ───────────────────────────────────────── */
+.conference-page {
+  min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  padding: 2rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* ── En-tête ─────────────────────────────────────────────────── */
+.conf-header {
+  width: 100%;
+  max-width: 760px;
+  background: linear-gradient(135deg, #1a1a3e 0%, #2d1b69 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  animation: fadeSlideDown 0.5s ease both;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.conf-title {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.conf-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.meta-icon { font-size: 1rem; }
+
+/* ── Cartes de section ──────────────────────────────────────── */
+.section-card {
+  width: 100%;
+  max-width: 760px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  animation: fadeSlideUp 0.5s ease both;
+  backdrop-filter: blur(12px);
+}
+
+.section-card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  color: #c4b5fd;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 1.2rem;
+  line-height: 1.6;
+}
+
+/* ── Zone de saisie ─────────────────────────────────────────── */
+.input-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.text-input {
+  flex: 1;
+  min-width: 180px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  padding: 0.65rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.text-input::placeholder { color: var(--text-muted); }
+
+.text-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.25);
+}
+
+.preview {
+  margin: 0.8rem 0 0;
+  font-size: 0.88rem;
+  color: #a78bfa;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── Boutons ─────────────────────────────────────────────────── */
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn:active { transform: scale(0.96); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 6px 28px rgba(108, 99, 255, 0.55);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ── Statut d'inscription ────────────────────────────────────── */
+.status {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 1.2rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+}
+
+.status.available {
+  background: rgba(0, 230, 118, 0.1);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  color: var(--success);
+}
+
+.status.full {
+  background: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.3);
+  color: var(--danger);
+}
+
+/* ── Table récapitulative ───────────────────────────────────── */
+.recap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.recap th,
+.recap td {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.recap th {
+  color: #a78bfa;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.recap td { color: var(--text-muted); }
+.recap td:first-child { color: var(--text-main); font-weight: 600; }
+
+.recap code {
+  background: rgba(108, 99, 255, 0.15);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  border-radius: 5px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.82rem;
+  color: #c4b5fd;
+  font-family: 'Fira Code', monospace;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
