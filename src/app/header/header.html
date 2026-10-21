@@ -1,26 +1,19 @@
 <nav class="navbar">
 
-  <!-- Logo / nom de l'appli -->
   <a class="nav-brand" routerLink="/accueil">🎤 ConfTech</a>
 
-  <!-- Liens de navigation -->
   <ul class="nav-links">
-
     <li>
-      <!--
-        routerLink     : navigue vers /accueil
-        routerLinkActive : ajoute la classe "active" quand on est sur cette route
-      -->
       <a routerLink="/accueil" routerLinkActive="active">Accueil</a>
     </li>
-
     <li>
       <a routerLink="/conferences" routerLinkActive="active">Conférences</a>
     </li>
-
+    <li>
+      <a routerLink="/admin" routerLinkActive="active">Admin</a>
+    </li>
   </ul>
 
-  <!-- Badge réservations (depuis BookingService) -->
   <div class="nav-badge">
     🎟️ <span>{{ bookingService.totalReservations }}</span> réservation(s)
   </div>

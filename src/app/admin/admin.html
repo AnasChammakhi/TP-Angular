@@ -1,0 +1,24 @@
+<div class="admin-page">
+  <div class="admin-container">
+    <h1>Espace Administration</h1>
+
+    <nav class="admin-nav">
+      <!-- Chemin vide pour le dashboard -->
+      <a
+        routerLink="./"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Dashboard
+      </a>
+      <!-- Sous-routes -->
+      <a routerLink="users" routerLinkActive="active">Utilisateurs</a>
+      <a routerLink="speakers" routerLinkActive="active">Speakers</a>
+      <a routerLink="form-conference" routerLinkActive="active">Ajouter conférence</a>
+    </nav>
+
+    <!-- Zone d'affichage des composants enfants du module admin -->
+    <main class="admin-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -62,11 +62,11 @@
         ✅ Il reste <strong>{{ placesDisponibles() }}</strong> place(s).
       </p>
 
-      <!--
-          EVENT BINDING (click)
-        -->
-      <button id="btnInscrire" class="btn btn-primary" (click)="sInscrire()">
-        S'inscrire à la conférence
+      <button
+        [routerLink]="['/inscription',conference.id]"
+        type="button"
+        class="btn btn-primary">
+        S'inscrire
       </button>
 
       } @else {

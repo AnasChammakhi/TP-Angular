@@ -1,0 +1,64 @@
+.admin-page {
+  min-height: calc(100vh - 180px);
+  padding: 2.5rem 1.5rem;
+  background: #0f0f1a;
+  color: #e8e8ff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.admin-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.admin-container h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+  background: linear-gradient(135deg, #a78bfa 0%, #6c63ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Navigation sous-routes ─────────────────────────────────── */
+.admin-nav {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.admin-nav a {
+  padding: 0.6rem 1.25rem;
+  border-radius: 10px;
+  color: #9090b0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.admin-nav a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-nav a.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6c63ff 0%, #a78bfa 100%);
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.35);
+}
+
+/* ── Zone de contenu enfant ─────────────────────────────────── */
+.admin-content {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
