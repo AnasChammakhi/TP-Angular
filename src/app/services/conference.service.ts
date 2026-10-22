@@ -76,6 +76,17 @@ export class ConferenceService {
    * Décrémente les places disponibles pour une conférence donnée.
    * Appelé uniquement par BookingService — jamais directement par un composant.
    */
+  /**
+   * Ajoute une nouvelle conférence à la liste.
+   * Génère automatiquement un id unique.
+   */
+  addConference(conference: Omit<ConferenceModel, 'id'>): void {
+    this._conferences.update(liste => {
+      const newId = liste.length > 0 ? Math.max(...liste.map(c => c.id)) + 1 : 1;
+      return [...liste, { id: newId, ...conference }];
+    });
+  }
+
   decrementPlace(conferenceId: number): void {
     this._conferences.update(liste =>
       liste.map(c =>

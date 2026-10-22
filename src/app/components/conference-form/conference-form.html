@@ -9,17 +9,13 @@
       <label for="title">Titre :</label>
       <input id="title" formControlName="title" placeholder="Ex: Découverte d'Angular Signals" class="form-input">
 
-      @if(myForm.get('title')?.errors?.['required'] && myForm.get('title')?.touched) {
-        <div class="error-msg">
-          Titre obligatoire
-        </div>
-      }
+      <div class="error-msg" *ngIf="myForm.get('title')?.errors?.['required'] && myForm.get('title')?.touched">
+        Titre obligatoire
+      </div>
 
-      @if(myForm.get('title')?.errors?.['minlength'] && myForm.get('title')?.touched) {
-        <div class="error-msg">
-          Titre doit faire au moins {{ myForm.get('title')?.errors?.['minlength'].requiredLength }} caractères
-        </div>
-      }
+      <div class="error-msg" *ngIf="myForm.get('title')?.errors?.['minlength'] && myForm.get('title')?.touched">
+        Titre doit faire au moins {{ myForm.get('title')?.errors?.['minlength'].requiredLength }} caractères
+      </div>
     </div>
 
     <!-- Champ Description -->
@@ -27,11 +23,9 @@
       <label for="description">Description :</label>
       <textarea id="description" formControlName="description" rows="3" placeholder="Description de la conférence..." class="form-input"></textarea>
 
-      @if(myForm.get('description')?.errors?.['required'] && myForm.get('description')?.touched) {
-        <div class="error-msg">
-          Description obligatoire
-        </div>
-      }
+      <div class="error-msg" *ngIf="myForm.get('description')?.errors?.['required'] && myForm.get('description')?.touched">
+        Description obligatoire
+      </div>
     </div>
 
     <!-- Champs Date & Places -->
